@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ปิยะภัทร สีแสง (มังกร) // Portfolio</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Cozy Clean Dark Theme Design System */
+    :root {
+      --bg-base: #0f1013;
+      --bg-card: #16181f;
+      --bg-card-hover: #1e212b;
+      
+      --accent: #dfb15b; /* Soft Champagne Gold */
+      --accent-rgb: 223, 177, 91;
+      --accent-muted: rgba(223, 177, 91, 0.15);
+      
+      --text-main: #f3f4f6; /* Off-white */
+      --text-sub: #9ca3af; /* Soft Gray */
+      --text-muted: #6b7280; /* Muted Gray */
+      
+      --border-color: rgba(255, 255, 255, 0.05);
+      --font-sans: 'Outfit', 'Noto Sans Thai', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+    }
+
+    body {
+      min-height: 100vh;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 80% 20%, rgba(var(--accent-rgb), 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.01) 0%, transparent 40%);
+    }
+
+    /* Selection & Scrollbar */
+    ::selection {
+      background: var(--accent-muted);
+      color: var(--text-main);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272a35;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* Container Utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+    }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(15, 16, 19, 0.8);
+    }
+
+    .nav-inner {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .menu {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .menu a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .menu a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-greeting {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero-name {
+      font-size: clamp(38px, 4.5vw, 56px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: var(--text-main);
+    }
+
+    .hero-name span {
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    /* Cozy Clean Buttons */
+    .btn {
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: var(--bg-base);
+    }
+
+    .btn-primary:hover {
+      background-color: #f0c575;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(var(--accent-rgb), 0.15);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Profile Portrait Container */
+    .profile-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      width: 340px;
+      height: 420px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(var(--accent-rgb), 0.3);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(10%) contrast(105%);
+      transition: filter 0.4s ease;
+    }
+
+    .profile-card:hover .profile-img {
+      filter: grayscale(0%) contrast(100%);
+    }
+
+    /* Ambient glowing shadow under photo */
+    .profile-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15) 0%, transparent 70%);
+      top: 20px;
+      z-index: -1;
+      filter: blur(20px);
+    }
+
+    /* Section Titles */
+    .section-title {
+      margin-bottom: 48px;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-headline {
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-headline::after {
+      content: '';
+      flex-grow: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border-color), transparent);
+    }
+
+    /* About Section */
+    .about {
+      padding: 100px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .bio {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-sub);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-weight: 300;
+    }
+
+    .bio p strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Skills Grid */
+    .skills-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    .skills-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skills-title-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent);
+      border-radius: 50%;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-tag {
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px 12px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .skill-tag:hover {
+      border-color: rgba(var(--accent-rgb), 0.2);
+      background-color: var(--bg-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .skill-icon {
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .skill-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-main);
+      display: block;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 100px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: rgba(var(--accent-rgb), 0.2);
+      background-color: var(--bg-card-hover);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-tech {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    .project-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      font-weight: 300;
+      flex-grow: 1;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    .project-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+    }
+
+    /* Timeline Section */
+    .timeline {
+      padding: 100px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .timeline-container {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .timeline-item {
+      display: flex;
+      border-left: 2px solid var(--border-color);
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background-color: var(--bg-base);
+      border: 2px solid var(--border-color);
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+
+    .timeline-item:hover::before {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5);
+    }
+
+    .timeline-date {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      min-width: 160px;
+      margin-top: 2px;
+    }
+
+    .timeline-content {
+      font-size: 14px;
+      color: var(--text-sub);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .timeline-role {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .timeline-company {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .timeline-desc {
+      font-weight: 300;
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 100px 0 140px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .contact-para {
+      color: var(--text-sub);
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--text-sub);
+      transition: color 0.2s;
+    }
+
+    .contact-item:hover {
+      color: var(--accent);
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      transition: all 0.25s;
+    }
+
+    .contact-item:hover .contact-icon {
+      border-color: var(--accent);
+      background-color: rgba(var(--accent-rgb), 0.05);
+    }
+
+    .contact-labels {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Clean Cozy Form */
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      position: relative;
+    }
+
+    .input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px 20px;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      outline: none;
+      transition: all 0.25s;
+    }
+
+    .input:focus {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    textarea.input {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .label {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: all 0.25s ease;
+      font-size: 14px;
+    }
+
+    .input:focus + .label,
+    .input:not(:placeholder-shown) + .label {
+      transform: translateY(-24px) scale(0.85);
+      left: 10px;
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      background-color: #0b0c0e;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive Design adjustments */
+    @media (max-width: 1024px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+      }
+
+      .hero-text {
+        align-items: center;
+      }
+
+      .profile-wrap {
+        order: -1;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+
+      .container {
+        padding: 0 24px;
+      }
+
+      .timeline-item {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .timeline-date {
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main Navigation">
+        <a href="#" class="brand" aria-label="Home">
+          มังกร<span>.</span>
+        </a>
+        <ul class="menu">
+          <li><a href="#about">เกี่ยวกับผม</a></li>
+          <li><a href="#projects">ผลงาน</a></li>
+          <li><a href="#timeline">ประสบการณ์</a></li>
+          <li><a href="#contact">ติดต่อ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-text">
+          <div class="hero-greeting">ยินดีต้อนรับสู่พอร์ตโฟลิโอ</div>
+          <h1 class="hero-name">
+            สวัสดีครับ, ผมชื่อ<br />
+            <span>ปิยะภัทร สีแสง (มังกร)</span>
+          </h1>
+          <p class="hero-desc">
+            นักพัฒนาเว็บแอปพลิเคชันและนักออกแบบ UI/UX ที่หลงใหลในการผสานเทคโนโลยีอันล้ำสมัยเข้ากับงานดีไซน์ที่เรียบง่าย สบายตา และเปี่ยมประสิทธิภาพการแสดงผล
+          </p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">
+              ติดต่อฉัน
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+              ดูผลงานของผม
+            </a>
+          </div>
+        </div>
+
+        <div class="profile-wrap">
+          <!-- Profile Card -->
+          <div class="profile-card">
+            <img src="profile.jpg" alt="ปิยะภัทร สีแสง (มังกร)" class="profile-img" />
+          </div>
+          <div class="profile-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-subtitle">ABOUT ME</span>
+        <h2 class="section-headline">เกี่ยวกับตัวผม</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="bio">
+          <p>
+            สวัสดีครับ! ผมชื่อ <strong>ปิยะภัทร สีแสง</strong> หรือเรียกเล่นๆ ว่า <strong>มังกร</strong> ครับ ผมเป็นนักพัฒนาเว็บและผู้ออกแบบประสบการณ์ดิจิทัลที่เน้นการรังสรรค์เว็บไซต์ที่เรียบหรูและตอบสนองได้รวดเร็วทันใจ
+          </p>
+          <p>
+            เป้าหมายการทำงานของผมคือการเปลี่ยนไอเดียซับซ้อนให้กลายเป็นเว็บที่ดูโปร่ง ใช้งานง่าย และสบายตา โดยเน้นการจัดระเบียบโครงสร้างของโค้ดที่สะอาดเพื่อให้ดูแลรักษาง่ายในระยะยาว
+          </p>
+          <p>
+            ผมมักคอยพัฒนาฝีมือด้วยการศึกษาเครื่องมือและเทคโนโลยี Frontend ใหม่ๆ อยู่เสมอ เพื่อนำมาปรับปรุงระบบการแสดงผลและการใช้งานให้ได้มาตรฐานสูงสุด
+          </p>
+        </div>
+
+        <!-- Tech Stack Console -->
+        <div class="skills-box" id="skills">
+          <h3 class="skills-title">
+            <span class="skills-title-dot"></span>
+            เครื่องมือ & ความสามารถ
+          </h3>
+
+          <div class="skills-grid">
+            <div class="skill-tag">
+              <span class="skill-name">HTML/CSS</span>
+              <span class="skill-desc">Expert</span>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">Javascript</span>
+              <span class="skill-desc">Expert</span>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">Database</span>
+              <span class="skill-desc">Senior</span>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">UI/UX Design</span>
+              <span class="skill-desc">Advanced</span>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">Git/DevOps</span>
+              <span class="skill-desc">Intermediate</span>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">React / Next</span>
+              <span class="skill-desc">Advanced</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-subtitle">PORTFOLIO</span>
+        <h2 class="section-headline">ผลงานที่ภาคภูมิใจ</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <span class="project-tech">React // Node.js // Socket.io</span>
+          <h3 class="project-title">Cyber Dashboard v1</h3>
+          <p class="project-desc">
+            แดชบอร์ดจัดการระบบคลาวด์แบบเรียลไทม์ พร้อมด้วยระบบแสดงกราฟอนิเมชันประสิทธิภาพสูงผ่าน Canvas และ WebGL โหลดหน้าเว็บรวดเร็ว
+          </p>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              ดูหน้าเว็บ
+            </a>
+            <a href="#" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <span class="project-tech">Next.js // Three.js // Tailwind</span>
+          <h3 class="project-title">Interactive 3D Showroom</h3>
+          <p class="project-desc">
+            เว็บไซต์แสดงโมเดลสินค้ารูปแบบ 3 มิติเชิงโต้ตอบ สามารถหมุน ซูม เปลี่ยนสีวัสดุเสมือนจริงบนเบราว์เซอร์ได้ทันที
+          </p>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              ดูหน้าเว็บ
+            </a>
+            <a href="#" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <span class="project-tech">CSS Shader // Vanilla JS // GSAP</span>
+          <h3 class="project-title">Synthwave Audio Visualizer</h3>
+          <p class="project-desc">
+            เครื่องเล่นเพลงและจำลองคลื่นความถี่เสียงแนวแฟนตาซียุค 80 โดยซิงค์จังหวะเข้ากับฟิลเตอร์กราฟิกและแสงนีออนของหน้าเว็บ
+          </p>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              ดูหน้าเว็บ
+            </a>
+            <a href="#" class="project-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline (Log Terminal) Section -->
+  <section class="timeline" id="timeline">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-subtitle">HISTORY</span>
+        <h2 class="section-headline">เส้นทางสายอาชีพ</h2>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-list">
+          <!-- Job 1 -->
+          <div class="timeline-item">
+            <div class="timeline-date">2024 - PRESENT</div>
+            <div class="timeline-content">
+              <div class="timeline-role">Senior Frontend Developer <span class="timeline-company">@ INNOVATIVE TECH</span></div>
+              <div class="timeline-desc">
+                ดูแลการพัฒนาสถาปัตยกรรม UI หลักของโปรดักต์ในองค์กร ปรับปรุงความเร็วเว็บแอปพลิเคชันขึ้น 40% และปรับปรุงระบบ Design System ให้เป็นมิตรกับผู้ใช้งานมากขึ้น
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="timeline-item">
+            <div class="timeline-date">2022 - 2024</div>
+            <div class="timeline-content">
+              <div class="timeline-role">Frontend Architect & Designer <span class="timeline-company">@ CREATIVE DIGITAL CO.</span></div>
+              <div class="timeline-desc">
+                สร้างสรรค์และออกแบบเว็บไซต์แคมเปญแบบ Interactive โดยผสานเทคโนโลยี WebGL และ Canvas เข้าไปในเว็บเพื่อให้ผู้เข้าใช้งานจดจำและสนุกสนานไปกับการควบคุมแบรนด์สินค้า
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - 2022</div>
+            <div class="timeline-content">
+              <div class="timeline-role">Fullstack Engineer <span class="timeline-company">@ NEXUS SOLUTIONS</span></div>
+              <div class="timeline-desc">
+                พัฒนาเว็บแอปพลิเคชันแบบ Full-Stack เชื่อมต่อฐานข้อมูล ดูแลทั้งระบบหลังบ้าน และปรับโครงสร้าง CSS ภายนอกให้รองรับการแสดงผลทุกเบราว์เซอร์
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-subtitle">CONTACT</span>
+        <h2 class="section-headline">ส่งข้อความหาผม</h2>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info">
+          <p class="contact-para">
+            หากคุณมีความสนใจในการร่วมงาน ร่วมพัฒนาโปรเจกต์ หรือต้องการคำแนะนำเพิ่มเติมเกี่ยวกับงานพัฒนาเว็บไซต์ สามารถติดต่อหาผมได้โดยตรงผ่านช่องทางเหล่านี้ครับ
+          </p>
+
+          <div class="contact-list">
+            <a href="mailto:piyaphat.m@proton.me" class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-labels">
+                <span class="contact-label">อีเมลติดต่อ</span>
+                <span class="contact-value">piyaphat.m@proton.me</span>
+              </div>
+            </a>
+
+            <a href="#" class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </div>
+              <div class="contact-labels">
+                <span class="contact-label">GITHUB REPOSITORY</span>
+                <span class="contact-value">github.com/piyaphatdev</span>
+              </div>
+            </a>
+
+            <a href="#" class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div class="contact-labels">
+                <span class="contact-label">LINKEDIN PROFILE</span>
+                <span class="contact-value">linkedin.com/in/piyaphat</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <!-- Cozy Form -->
+          <form class="form" onsubmit="event.preventDefault(); alert('ส่งสัญญาณติดต่อเรียบร้อย ขอบคุณครับ!');">
+            <div class="form-row">
+              <input type="text" id="name" class="input" placeholder=" " required />
+              <label for="name" class="label">ชื่อของคุณ (Name)</label>
+            </div>
+            
+            <div class="form-row">
+              <input type="email" id="email" class="input" placeholder=" " required />
+              <label for="email" class="label">อีเมลของคุณ (Email)</label>
+            </div>
+
+            <div class="form-row">
+              <textarea id="message" class="input" placeholder=" " required></textarea>
+              <label for="message" class="label">ข้อความรายละเอียด (Message)</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="justify-content: center;">
+              ส่งข้อความ
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>&copy; 2026 ปิยะภัทร สีแสง. สงวนลิขสิทธิ์ทั้งหมด.</div>
+        <div>LOC: BANGKOK, TH</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
